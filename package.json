@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "author": "Mark Stedman <mark_stedman@wycliffeassociates.org>",
-  "description": "A helpful robot for WA",
+  "description": "A helpful and interesting robot for WA",
   "dependencies": {
     "hubot": "^2.12.0",
     "hubot-diagnostics": "0.0.1",
