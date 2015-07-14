@@ -35,15 +35,15 @@ module.exports = function (robot) {
 robot.respond(/bible version ULB/i, function(res) {
   var version;
   version = "ULB"
+    robot.brain.set('version', version);
     res.reply('Version set to ULB');
-    return robot.brain.set('version', version);
 });
 
 robot.respond(/bible version UDB/i, function(res) {
   var version;
   version = "UDB"
-    res.reply('Version set to UDB');
-    return robot.brain.set('version', version);
+  robot.brain.set('version', version);
+  res.reply('Version set to ' + version);
 });
 
 robot.respond(/bible version/i, function(res) {
