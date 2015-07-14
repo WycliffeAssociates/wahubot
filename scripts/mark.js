@@ -17,15 +17,15 @@
 module.exports = function (robot) {
   robot.respond(/bible version *(.*)/i, function(res) {
   var version
-  version = res.match[1]
-  if (version == undefined) {
+  version = res.match[1].toUpperCase()
+  if (version == '') {
       version = robot.brain.get('version')
       res.reply('Using ' + version);
   } else if ((version == 'UDB') || (version == 'ULB')) {
       robot.brain.set('version', version);
       res.reply('Version set to ' + version);
   } else {
-      res.reply('Sorry, ' + version + 'is not available')
+      res.reply('Sorry, ' + version + ' is not available')
   }
     
 });
