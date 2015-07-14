@@ -49,7 +49,7 @@ robot.respond(/bible version UDB/i, function(res) {
 robot.respond(/bible version/i, function(res) {
   var version;
   version = robot.brain.get('version')
-    res.reply(version);
+    res.reply('2nd func' + version);
 });
 
 };
