@@ -15,7 +15,22 @@
 //   WycliffeAssociates
 
 module.exports = function(robot){
-    robot.hear(/bible me(.*)/i, function(msg) {
+    robot.respond(/bible version *(.*)/i, function (res) {
+        var version
+        version = res.match[1].toUpperCase()
+        if (version == '') {
+            version = robot.brain.get('version')
+            res.reply('Using ' + version);
+        } else if ((version == 'UDB') || (version == 'ULB')) {
+            robot.brain.set('version', version);
+            res.reply('Version set to ' + version);
+        } else {
+            res.reply('Sorry, ' + version + ' is not available')
+        }
+
+    });
+
+    robot.hear(/bible me(.*)/i, function (msg) {
 
         //get the json file from the following URL
         robot.http("https://api.unfoldingword.org/uw/txt/2/catalog.json").get()(function(err, res, body) {
